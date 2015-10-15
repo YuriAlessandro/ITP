@@ -6,7 +6,6 @@ typedef struct {
     int s;
 }Horario;
 
-/* seu código será inserido aqui */
 int converte_segundos( Horario horario ){
     return horario.h*3600+horario.m*60+horario.s;
 
