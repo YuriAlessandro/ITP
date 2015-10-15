@@ -7,47 +7,34 @@ void imprimir (int mat[100][100], int linhas, int colunas);
 int teste1 (int v[], int n, int numero);
 int teste2 (int vetor[], int n);
 
-	int main(){
+int main(){
+	int i, j, n, quadradolatino, matriz[100][100], vetor[100];
+	printf ("\tBienvenido al Quadrado Latino aiaiai\n\n");
+  	printf ("Entre com a ordem da matriz: ");
+  	scanf ("%d", &n);
 
-  int i, j, n, quadradolatino, matriz[100][100], vetor[100];
+  	lernumeros (matriz,n,n);
+  	printf("\n\nMatriz lida:\n");
+  	imprimir (matriz,n,n);
 
-printf ("\tBienvenido al Quadrado Latino aiaiai\n\n");
+  	quadradolatino = 1; // Vai ser latino até o retorne ser zero 
 
-  printf ("Entre com a ordem da matriz: ");
-  scanf ("%d", &n);
-
-  lernumeros (matriz,n,n);
-  printf("\n\nMatriz lida:\n");
-  imprimir (matriz,n,n);
-
-  quadradolatino = 1; // Vai ser latino até o retorne ser zero 
-
-
-  for (i = 0; i < n && quadradolatino == 1; i++)
-    // verifica se a linha matriz[i] da matriz é latina 
-    quadradolatino = teste2(matriz[i], n);  
+  	for (i = 0; i < n && quadradolatino == 1; i++)
+    	// verifica se a linha matriz[i] da matriz é latina 
+    	quadradolatino = teste2(matriz[i], n);  
   
-  for (j = 0; j < n && quadradolatino == 1; j++) {
-    // verifica se a coluna j da matriz matriz é latina 
-    // copia coluna j para o vetor 
-    for (i = 0; i < n; i++) 
-      vetor[i] = matriz[i][j];
-    
-    quadradolatino = teste2(vetor,n);
-  }
+  	for (j = 0; j < n && quadradolatino == 1; j++) {
+    	// verifica se a coluna j da matriz matriz é latina 
+    	// copia coluna j para o vetor 
+   		for (i = 0; i < n; i++) vetor[i] = matriz[i][j];
+    		quadradolatino = teste2(vetor,n);
+  	}
 
-  if (quadradolatino == 1) 
-    printf("Eh Quadrado Latino aiaiai\n");
-  else 
-    printf("Nao eh um Quadrado Latino\n");
+	if (quadradolatino == 1) printf("Eh Quadrado Latino aiaiai\n");
+  	else printf("Nao eh um Quadrado Latino\n");
 
-		
-		return 0;
-		}
-
-
-
-
+	return 0;
+	}
 
 //aqui só para preencher a matriz
 
